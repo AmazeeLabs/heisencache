@@ -11,6 +11,7 @@
  */
 
 use OSInet\Heisencache\SqlWriterSubscriber;
+use OSInet\Heisencache\CacheReadLogWriterSubscriber;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -45,6 +46,34 @@ function heisencache_schema() {
       ),
     ),
     'primary key' => array('id'),
+  );
+
+  $ret[CacheReadLogWriterSubscriber::DB_TABLE] = array(
+    'description' => 'Contains cache_get() usage statistics.',
+    'fields' => array(
+      'channel' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'The channel (cache bin).',
+      ),
+      'cache_id' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'The cache ID.',
+      ),
+      'timestamp' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'The timestamp of the last cache_get() call.',
+      ),
+    ),
+    'primary key' => array('channel', 'cache_id'),
+    'indexes' => array(
+      'channel' => array('channel'),
+      'timestamp' => array('timestamp'),
+    ),
   );
 
   return $ret;

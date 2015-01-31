@@ -39,10 +39,11 @@ function heisencache_require() {
 
   // Load cache-related classes.
   require_once __DIR__ . "/src/Heisencache/EventSourceInterface.php";
-  require_once __DIR__ . "/src/Heisencache/EventSourceInterface.php";
   require_once __DIR__ . "/src/Heisencache/EventSubscriberInterface.php";
   require_once __DIR__ . "/src/Heisencache/BaseEventSubscriber.php";
   require_once __DIR__ . "/src/Heisencache/EventSourceSubscriber.php";
+  require_once __DIR__ . "/src/Heisencache/CacheReadLogWriterSubscriber.php";
+  require_once __DIR__ . "/src/Heisencache/CacheReadLogReader.php";
   require_once __DIR__ . "/src/Heisencache/EventEmitter.php";
   require_once __DIR__ . "/src/Heisencache/Cache.php";
   require_once __DIR__ . "/src/Heisencache/Config.php";
