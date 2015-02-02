@@ -13,7 +13,7 @@
 use OSInet\Heisencache\SqlWriterSubscriber;
 use OSInet\Heisencache\CacheReadLogWriterSubscriber;
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/class_loader.inc';
 
 /**
  * Implements hook_schema().
